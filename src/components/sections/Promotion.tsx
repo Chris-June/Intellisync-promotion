@@ -192,6 +192,55 @@ export function Promotion() {
                       <p>• Business-ready professional websites</p>
                       <p>• Mobile-friendly designs that stand out</p>
                       <p>• Start 2025 with a digital presence you’ll love</p>
+                      <div className="mt-4 space-y-4">
+                        <p className="text-md font-semibold text-gray-300">Demo Sites:</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <a 
+                            href="https://yoga-studios.netlify.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
+                          >
+                            <div className="relative w-full aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                              <span className="text-white/70 text-sm">Yoga Studios</span>
+                            </div>
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                          </a>
+                          <a 
+                            href="https://summit-shows-canada.netlify.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
+                          >
+                            <div className="relative w-full aspect-video bg-gradient-to-br from-green-500/20 to-teal-500/20 flex items-center justify-center">
+                              <span className="text-white/70 text-sm">Summit Shows Canada</span>
+                            </div>
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                          </a>
+                          <a 
+                            href="https://erins-photography.netlify.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
+                          >
+                            <div className="relative w-full aspect-video bg-gradient-to-br from-pink-500/20 to-red-500/20 flex items-center justify-center">
+                              <span className="text-white/70 text-sm">Erin's Photography</span>
+                            </div>
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                          </a>
+                          <a 
+                            href="https://intellisync-home-pro.netlify.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
+                          >
+                            <div className="relative w-full aspect-video bg-gradient-to-br from-orange-500/20 to-yellow-500/20 flex items-center justify-center">
+                              <span className="text-white/70 text-sm">Intellisync Home Pro</span>
+                            </div>
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

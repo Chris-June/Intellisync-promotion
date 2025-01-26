@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Modal } from './Modal';
+import { Modal, ModalProps } from './Modal';
 import { Mail, Zap, Globe, Shield} from 'lucide-react';
 import { GradientHeading } from '../ui/GradientHeading';
 
@@ -84,7 +84,9 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
   ];
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Digital Transformation Consultation">
+    <Modal 
+      {...({ isOpen, onClose, title: "Digital Transformation Consultation", className: "z-[2147483647]" } as ModalProps)}
+    >
       <div className="space-y-8 bg-gray-900 p-2 rounded-xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -176,67 +178,77 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         </motion.div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              required
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            />
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-emerald-400" />
+                <h4 className="text-lg font-semibold text-white">Contact Details</h4>
+              </div>
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
+              </div>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              required
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            />
-          </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+              </div>
+            </div>
 
-          <div>
-            <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-1">
-              Project Type
-            </label>
-            <select
-              id="projectType"
-              required
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
-              value={formData.projectType}
-              onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-            >
-              <option value="">Select a project type</option>
-              {aiProjectTypes.map((projectType) => (
-                <option key={projectType.value} value={projectType.value}>
-                  {projectType.label}
-                </option>
-              ))}
-            </select>
-          </div>
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-1">
+                  Project Type
+                </label>
+                <select
+                  id="projectType"
+                  required
+                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
+                  value={formData.projectType}
+                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                >
+                  <option value="">Select a project type</option>
+                  {aiProjectTypes.map((projectType) => (
+                    <option key={projectType.value} value={projectType.value}>
+                      {projectType.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-              Project Details
-            </label>
-            <textarea
-              id="message"
-              required
-              rows={4}
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
-              placeholder={`Tell me about your vision—your boldest dream, your ultimate goal. What inspires you? What sets your heart racing? Share your ambition, no matter how daring, and together, we’ll create something extraordinary—crafted with passion, driven by purpose, and built to transform your world.`}
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            />
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                  Project Details
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows={4}
+                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
+                  placeholder={`Tell me about your vision—your boldest dream, your ultimate goal. What inspires you? What sets your heart racing? Share your ambition, no matter how daring, and together, we’ll create something extraordinary—crafted with passion, driven by purpose, and built to transform your world.`}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                />
+              </div>
+            </div>
           </div>
 
           <motion.button

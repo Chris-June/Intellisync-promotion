@@ -2,16 +2,17 @@ import React, { useEffect } from 'react';
 import { X, Mail } from 'lucide-react';
 import { BorderTrail } from '@/components/core/border-trail';
 
-interface ModalProps {
+export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
   title: string;
   onContactUs?: () => void;
   onContactClick?: () => void;
+  className?: string;
 }
 
-export function Modal({ isOpen, onClose, children, title, onContactUs, onContactClick }: ModalProps) {
+export function Modal({ isOpen, onClose, children, title, onContactUs, onContactClick, className }: ModalProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -31,7 +32,7 @@ export function Modal({ isOpen, onClose, children, title, onContactUs, onContact
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] overflow-y-auto">
+    <div className={`fixed inset-0 z-[9999] overflow-y-auto ${className || ''}`}>
       <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999]" onClick={onClose} />
       <div className="flex min-h-full items-center justify-center p-4">
         <div className="relative w-full max-w-2xl rounded-2xl bg-gray-800 border border-gray-700 shadow-xl z-[10000] overflow-hidden">
